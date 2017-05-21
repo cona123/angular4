@@ -1,6 +1,10 @@
+
+<div class="card container form-container">
 <p>
   proposal-new works!
 </p>
+<div class="row">
+<div class="col-md-6">
 <div>
   <form #proposalForm = "ngForm">
     <div class="form-group">
@@ -32,8 +36,11 @@
                     [(ngModel)]="proposal.portfolio_url"
             >
             <div [hidden]="portfolio_url.valid || portfolio_url.pristine"
-                  class='alert alert-danger'
+                  class='alert alert-warning alert-dismissible fade show' role="alert"
             >
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
               A Portfolio URL is required
             </div>
           </div>
@@ -123,7 +130,8 @@
           </div>
   </form>
 </div>
-
+</div>
+<div class="col-md-6">
 <div>
         <p>Hi {{ proposal.customer }},</p>
 
@@ -147,3 +155,6 @@
 
         <p>{{proposal.client_email}}</p>
       </div>
+      </div>
+      </div>
+</div>

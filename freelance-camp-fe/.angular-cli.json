@@ -50,6 +50,11 @@
       "config": "./karma.conf.js"
     }
   },
+  "stylePreprocessorOptions": {
+    "includePaths": [
+      "style-paths"
+    ]
+  },
   "defaults": {
     "styleExt": "css",
     "component": {}
