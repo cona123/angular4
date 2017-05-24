@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Proposal } from './proposal';
+import { Observable } from 'rxjs/Rx';
+import { ProposalService } from './proposal.service';
 @Component({
   selector: 'proposal-new',
   templateUrl: './proposal-new.component.html',
@@ -7,9 +9,21 @@ import { Proposal } from './proposal';
 })
 export class ProposalNewComponent {//implements OnInit {
   proposal = new Proposal;
-  //constructor() { }
+  submitted: boolean= false;
+  constructor(
+    private proposalService: ProposalService
+  ) {}
 
-  //ngOnInit() {
-  //}
+  createProposal(proposal) {
+    this.submitted = true;
+    this.proposalService.createProposal(proposal)
+        .subscribe(
+          data => { return true },
+          error => {
+            console.log("Error saving proposal111");
+            return Observable.throw(error);
+          }
+        );
+  }
 
 }
