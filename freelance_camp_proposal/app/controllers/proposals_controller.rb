@@ -16,7 +16,7 @@ class ProposalsController < ApplicationController
   # POST /proposals
   def create
     @proposal = Proposal.new(proposal_params)
-    ProposalMailer.email(@proposals).deliver_later
+    ProposalMailer.email(@proposal).deliver_now
     if @proposal.save
       render json: @proposal, status: :created, location: @proposal
     else

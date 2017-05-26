@@ -5,7 +5,8 @@ import { ProposalService } from './proposal.service';
 @Component({
   selector: 'proposal-new',
   templateUrl: './proposal-new.component.html',
-  styleUrls: ['./proposal-new.component.css']
+  styleUrls: ['./proposal-new.component.css'],
+   providers: [ ProposalService ]
 })
 export class ProposalNewComponent {//implements OnInit {
   proposal = new Proposal;
